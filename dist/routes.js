@@ -1,0 +1,26 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+;
+const UserController_1 = __importDefault(require("./controllers/UserController"));
+const PaymentCategoryController_1 = __importDefault(require("./controllers/PaymentCategoryController"));
+const SalesController_1 = __importDefault(require("./controllers/SalesController"));
+const routes = express_1.default.Router();
+routes.get('/users/All', UserController_1.default.index);
+routes.post('/users', UserController_1.default.create);
+routes.get('/users/:id', UserController_1.default.show);
+routes.put('/users/:id', UserController_1.default.update);
+routes.delete('/users/:id', UserController_1.default.delete);
+routes.get('/paymentCategory/All', PaymentCategoryController_1.default.index);
+routes.post('/paymentCategory', PaymentCategoryController_1.default.create);
+routes.get('/paymentCategory/:id', PaymentCategoryController_1.default.show);
+routes.put('/paymentCategory/:id', PaymentCategoryController_1.default.update);
+routes.delete('/paymentCategory/:id', PaymentCategoryController_1.default.delete);
+routes.get('/sales/All', SalesController_1.default.index);
+routes.get('/sales/:id', SalesController_1.default.show);
+routes.post('/sales', SalesController_1.default.create);
+routes.delete('/sales/:id', SalesController_1.default.delete);
+exports.default = routes;
